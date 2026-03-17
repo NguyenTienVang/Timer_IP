@@ -1,0 +1,77 @@
+# vsim -coverage -l reg_reserved_chk.log -c test_bench -voptargs="+cover=bcesft" -assertdebug -do "coverage save -onexit reg_reserved_chk.ucdb; log -r /*;run -all" 
+# Start time: 23:33:33 on Aug 13,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 linux_x86_64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading work.test_bench(fast)
+# coverage save -onexit reg_reserved_chk.ucdb
+#  log -r /*
+# run -all
+# ====================================
+# ==== Test Case: check Reserved =====
+# ====================================
+# write to 0x4000_1FFC
+# t=       100 [TB_WRITE]: addr=40001ffc data=ffffffff
+# t=       375 [TB_READ]: addr=40001ffc rdata=00000000
+# ------------------------------------------------
+# t=       375 PASS: rdata = 00000000 at addr 40001ffc is correct
+# ------------------------------------------------
+# write to begin of reserved addr
+# t=       375 [TB_WRITE]: addr=00000020 data=ffffffff
+# t=       675 [TB_READ]: addr=00000020 rdata=00000000
+# ------------------------------------------------
+# t=       675 PASS: rdata = 00000000 at addr 00000020 is correct
+# ------------------------------------------------
+# t=       675 [TB_WRITE]: addr=00000020 data=ffffffff
+# t=       975 [TB_READ]: addr=00000020 rdata=00000000
+# ------------------------------------------------
+# t=       975 PASS: rdata = 00000000 at addr 00000020 is correct
+# ------------------------------------------------
+# t=       975 [TB_WRITE]: addr=00000040 data=ffffffff
+# t=      1275 [TB_READ]: addr=00000040 rdata=00000000
+# ------------------------------------------------
+# t=      1275 PASS: rdata = 00000000 at addr 00000040 is correct
+# ------------------------------------------------
+# t=      1275 [TB_WRITE]: addr=00000080 data=ffffffff
+# t=      1575 [TB_READ]: addr=00000080 rdata=00000000
+# ------------------------------------------------
+# t=      1575 PASS: rdata = 00000000 at addr 00000080 is correct
+# ------------------------------------------------
+# t=      1575 [TB_WRITE]: addr=00000100 data=ffffffff
+# t=      1875 [TB_READ]: addr=00000100 rdata=00000000
+# ------------------------------------------------
+# t=      1875 PASS: rdata = 00000000 at addr 00000100 is correct
+# ------------------------------------------------
+# t=      1875 [TB_WRITE]: addr=00000200 data=ffffffff
+# t=      2175 [TB_READ]: addr=00000200 rdata=00000000
+# ------------------------------------------------
+# t=      2175 PASS: rdata = 00000000 at addr 00000200 is correct
+# ------------------------------------------------
+# t=      2175 [TB_WRITE]: addr=00000400 data=ffffffff
+# t=      2475 [TB_READ]: addr=00000400 rdata=00000000
+# ------------------------------------------------
+# t=      2475 PASS: rdata = 00000000 at addr 00000400 is correct
+# ------------------------------------------------
+# t=      2475 [TB_WRITE]: addr=00000800 data=ffffffff
+# t=      2775 [TB_READ]: addr=00000800 rdata=00000000
+# ------------------------------------------------
+# t=      2775 PASS: rdata = 00000000 at addr 00000800 is correct
+# ------------------------------------------------
+# Test_result PASSED
+# ** Note: $finish    : ../tb/test_bench.v(85)
+#    Time: 2875 ns  Iteration: 0  Instance: /test_bench
+# Saving coverage database on exit...
+# End time: 23:33:34 on Aug 13,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
